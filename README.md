@@ -4,7 +4,7 @@
 >제주 한달살이를 준비하는 사용자들을 위해 구상한 서비스입니다.   
 >주거공간에 대한 리뷰를 찾아보고, 게시판 서비스를 통해 자유롭게 소통할 수 있습니다.   
 
-배포 링크 : https://team-poject-cisibx65a-nakjun12.vercel.app (임시)
+배포 링크: https://team-poject-cisibx65a-nakjun12.vercel.app (임시)
 
 </br>
 
