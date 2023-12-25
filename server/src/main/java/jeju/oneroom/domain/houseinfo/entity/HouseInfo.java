@@ -60,8 +60,9 @@ public class HouseInfo extends BaseEntity {
     private Coordinate coordinate;
 
     @Builder
-    public HouseInfo(String mainPurpsCdNm, String houseName, String buildUes, String buildingStructure, int houseHold, String useAprDay, int grndFloor, int ugrndFloor,
+    private HouseInfo(Long id, String mainPurpsCdNm, String houseName, String buildUes, String buildingStructure, int houseHold, String useAprDay, int grndFloor, int ugrndFloor,
                      int elevator, String platPlc, Rate rate, Area area, List<Review> reviews, Coordinate coordinate) {
+        this.id = id;
         this.mainPurpsCdNm = mainPurpsCdNm;
         this.houseName = houseName;
         this.buildUes = buildUes;

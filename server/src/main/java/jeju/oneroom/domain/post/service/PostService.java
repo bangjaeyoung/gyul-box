@@ -64,7 +64,7 @@ public class PostService {
             .map(postMapper::postToSimpleResponseDto);
     }
 
-    // 제목을 통한 다중 게시글 최신순으로 조회
+    /*// 제목을 통한 다중 게시글 최신순으로 조회
     public Page<PostDto.SimpleResponseDto> findPostsByTitle(String title, int page, int size) {
         return postRepository.findPostsByTitleContains(title, PageRequest.of(page - 1, size))
             .map(postMapper::postToSimpleResponseDto);
@@ -80,7 +80,7 @@ public class PostService {
     public Page<PostDto.SimpleResponseDto> findPostsByHouseInfos(List<HouseInfo> houseInfos, int page, int size) {
         return postRepository.findPostsByHouseInfoIn(houseInfos, PageRequest.of(page - 1, size))
             .map(postMapper::postToSimpleResponseDto);
-    }
+    }*/
 
     // 게시글 id로 단일 게시글 삭제
     @Transactional

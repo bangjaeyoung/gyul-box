@@ -70,7 +70,7 @@ public class PostController {
         return new ResponseEntity<>(new MultiResponseDto<>(findPosts), HttpStatus.OK);
     }
 
-    // 주소를 통한 다중 게시글 조회 (최신순)
+    /*// 주소를 통한 다중 게시글 조회 (최신순)
     @GetMapping("/search-address")
     public ResponseEntity<MultiResponseDto<PostDto.SimpleResponseDto>> getPostsByAddress(@RequestParam("query") String query,
                                                                                          @RequestParam int page,
@@ -98,7 +98,7 @@ public class PostController {
         Page<PostDto.SimpleResponseDto> findPosts = postService.findAllPost(page, size);
 
         return new ResponseEntity<>(new MultiResponseDto<>(findPosts), HttpStatus.OK);
-    }
+    }*/
 
     // post-id로 단일 게시글 삭제
     @DeleteMapping("/{post-id}")
