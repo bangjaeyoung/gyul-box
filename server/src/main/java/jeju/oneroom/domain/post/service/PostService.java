@@ -59,8 +59,8 @@ public class PostService {
         // 조회 수 1 증가
         verifiedPost.increaseViews();
         
-//        List<PostComment> findPostComments = postCommentService.findPostCommentsByPost(verifiedPost);
-//        verifiedPost.setPostComments(findPostComments);
+        List<PostComment> findPostComments = postCommentService.findPostCommentsByPost(verifiedPost);
+        verifiedPost.setPostComments(findPostComments);
         
         return postMapper.postToResponseDto(verifiedPost);
     }
@@ -70,24 +70,24 @@ public class PostService {
         return postRepository.findAllByUserOrderByCreatedAtDesc(user, PageRequest.of(page - 1, size))
                 .map(postMapper::postToSimpleResponseDto);
     }
-
-    /*// 제목을 통한 다중 게시글 최신순으로 조회
+    
+    // 제목을 통한 다중 게시글 최신순으로 조회
     public Page<PostDto.SimpleResponseDto> findPostsByTitle(String title, int page, int size) {
         return postRepository.findPostsByTitleContains(title, PageRequest.of(page - 1, size))
-            .map(postMapper::postToSimpleResponseDto);
+                .map(postMapper::postToSimpleResponseDto);
     }
-
+    
     // 모든 게시글 최신순으로 조회
     public Page<PostDto.SimpleResponseDto> findAllPost(int page, int size) {
         return postRepository.findAllPosts(PageRequest.of(page - 1, size))
-            .map(postMapper::postToSimpleResponseDto);
+                .map(postMapper::postToSimpleResponseDto);
     }
-
+    
     // 다수의 건물에 속한 다중 게시글 조회
     public Page<PostDto.SimpleResponseDto> findPostsByHouseInfos(List<HouseInfo> houseInfos, int page, int size) {
         return postRepository.findPostsByHouseInfoIn(houseInfos, PageRequest.of(page - 1, size))
-            .map(postMapper::postToSimpleResponseDto);
-    }*/
+                .map(postMapper::postToSimpleResponseDto);
+    }
     
     // 게시글 id로 단일 게시글 삭제
     @Transactional

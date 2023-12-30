@@ -25,6 +25,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.Valid;
 import javax.validation.constraints.Positive;
+import java.util.List;
 
 @Validated
 @RestController
@@ -76,36 +77,36 @@ public class PostController {
         
         return new ResponseEntity<>(new MultiResponseDto<>(findPosts), HttpStatus.OK);
     }
-
-    /*// 주소를 통한 다중 게시글 조회 (최신순)
+    
+    // 주소를 통한 다중 게시글 조회 (최신순)
     @GetMapping("/search-address")
     public ResponseEntity<MultiResponseDto<PostDto.SimpleResponseDto>> getPostsByAddress(@RequestParam("query") String query,
                                                                                          @RequestParam int page,
                                                                                          @RequestParam int size) {
         List<HouseInfo> houseInfos = houseInfoService.findHouseInfosByAddress(query);
         Page<PostDto.SimpleResponseDto> findPosts = postService.findPostsByHouseInfos(houseInfos, page, size);
-
+        
         return new ResponseEntity<>(new MultiResponseDto<>(findPosts), HttpStatus.OK);
     }
-
+    
     // 제목을 통한 다중 게시글 조회 (최신순)
     @GetMapping("/search")
     public ResponseEntity<MultiResponseDto<PostDto.SimpleResponseDto>> getPostsByTitle(@RequestParam("query") String query,
                                                                                        @RequestParam int page,
                                                                                        @RequestParam int size) {
         Page<PostDto.SimpleResponseDto> findPosts = postService.findPostsByTitle(query, page, size);
-
+        
         return new ResponseEntity<>(new MultiResponseDto<>(findPosts), HttpStatus.OK);
     }
-
+    
     // 모든 게시글 조회 (최신순)
     @GetMapping
     public ResponseEntity<MultiResponseDto<PostDto.SimpleResponseDto>> getAllPosts(@RequestParam int page,
                                                                                    @RequestParam int size) {
         Page<PostDto.SimpleResponseDto> findPosts = postService.findAllPost(page, size);
-
+        
         return new ResponseEntity<>(new MultiResponseDto<>(findPosts), HttpStatus.OK);
-    }*/
+    }
     
     // post-id로 단일 게시글 삭제
     @DeleteMapping("/{post-id}")
