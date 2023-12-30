@@ -3,14 +3,20 @@ package jeju.oneroom.domain.post.dto;
 import jeju.oneroom.domain.houseinfo.dto.HouseInfoDto;
 import jeju.oneroom.domain.postcomment.dto.PostCommentDto;
 import jeju.oneroom.domain.user.dto.UserDto;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
-import javax.validation.constraints.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
 import java.time.LocalDateTime;
 import java.util.List;
 
 public class PostDto {
-
+    
     @Getter
     @Builder
     @NoArgsConstructor
@@ -20,51 +26,51 @@ public class PostDto {
         @NotBlank
         @Size(min = 10, message = "최소 10자 이상 입력해주세요")
         private String title;
-
+        
         // 내용
         @NotBlank
         @Size(min = 50, message = "최소 50자 이상 입력해주세요")
         private String content;
-
+        
         // houseInfo와 매핑하기 위한 id
         @NotNull
         private Long houseInfoId;
-
+        
         // 로그인 한 유저 정보
         @NotBlank
         @Pattern(regexp = "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
                 message = "올바른 이메일 형식을 입력해 주세요.")
         private String userEmail;
     }
-
+    
     @Getter
     @Builder
     @NoArgsConstructor
     @AllArgsConstructor
     public static class Patch {
         private Long postId;
-
+        
         // 제목
         @NotBlank
         @Size(min = 10, message = "최소 10자 이상 입력해주세요")
         private String title;
-
+        
         // 내용
         @NotBlank
         @Size(min = 50, message = "최소 50자 이상 입력해주세요")
         private String content;
-
+        
         // 로그인 한 유저 정보
         @NotBlank
         @Pattern(regexp = "^[a-zA-Z0-9+-\\_.]+@[a-zA-Z0-9-]+\\.[a-zA-Z0-9-.]+$",
                 message = "올바른 이메일 형식을 입력해 주세요.")
         private String userEmail;
-
+        
         public void setPostId(Long postId) {
             this.postId = postId;
         }
     }
-
+    
     @Getter
     @Builder
     @NoArgsConstructor
@@ -76,7 +82,7 @@ public class PostDto {
                 message = "올바른 이메일 형식을 입력해 주세요.")
         private String userEmail;
     }
-
+    
     @Getter
     @Builder
     @NoArgsConstructor
@@ -94,7 +100,7 @@ public class PostDto {
         private int commentsCount; // 달린 댓글 수
         private List<PostCommentDto.Response> postComments; // 게시글에 달린 댓글 리스트
     }
-
+    
     //심플 게시글 리스트
     @Getter
     @Builder
