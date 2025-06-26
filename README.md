@@ -2,7 +2,11 @@
 ><b>제주 지역의 주거공간 검색, 커뮤니티 서비스</b>
 >
 >제주 한달살이를 준비하는 사용자들을 위해 구상한 서비스입니다.   
->주거공간에 대한 리뷰를 찾아보고, 게시판 서비스를 통해 자유롭게 소통할 수 있습니다.   
+>주거공간에 대한 리뷰를 찾아보고, 게시판 서비스를 통해 자유롭게 소통할 수 있습니다.
+> 
+> related repo)   
+> https://github.com/codestates-seb/seb41_main_032   
+> https://github.com/bangjaeyoung/stock-box-project
 
 배포 링크: https://team-poject-cisibx65a-nakjun12.vercel.app (임시)
 
@@ -32,7 +36,7 @@
 </br>
 
 ## 3. ERD 설계
-<img src="https://github.com/bangjaeyoung/gyul-box/assets/80241053/71ec04c6-2c24-414f-99a1-a4dacb6de443" width=600 height=600>
+<img src="https://github.com/bangjaeyoung/gyul-box-project/assets/80241053/71ec04c6-2c24-414f-99a1-a4dacb6de443" width=600 height=600>
 
 </br>
 </br>
@@ -42,7 +46,7 @@
 </br>
 
 ## 4. 전체적인 흐름
-<img src="https://github.com/bangjaeyoung/gyul-box/assets/80241053/72a29c5c-dba1-46e0-8411-5c9544181cb6">
+<img src="https://github.com/bangjaeyoung/gyul-box-project/assets/80241053/72a29c5c-dba1-46e0-8411-5c9544181cb6">
 
 </br>
 </br>
@@ -57,7 +61,7 @@
 
 #### 1) 연관 관계 그림
 
-<img src="https://github.com/bangjaeyoung/gyul-box/assets/80241053/0bfba8d3-7c24-46a4-8c31-3ff6a5f60f1e" width=500 height=300>
+<img src="https://github.com/bangjaeyoung/gyul-box-project/assets/80241053/0bfba8d3-7c24-46a4-8c31-3ff6a5f60f1e" width=500 height=300>
 
 #### 2) 내용
 
@@ -125,7 +129,7 @@ N+1 문제가 발생하는 여러 메서드 중 `findPostById()`의 상황입니
 
 
 [기존 쿼리문 출력 사진]
-<img src = "https://github.com/bangjaeyoung/gyul-box/assets/80241053/7cb8fe8f-2d6f-4b03-a386-ca70459e8240">
+<img src = "https://github.com/bangjaeyoung/gyul-box-project/assets/80241053/7cb8fe8f-2d6f-4b03-a386-ca70459e8240">
 
 #### 2) 문제 해결
 
@@ -152,7 +156,7 @@ public Optional<Post> findPostById(long postId) {
 
 [개선 후 쿼리문 출력 사진]
 
-<img src="https://github.com/bangjaeyoung/gyul-box/assets/80241053/71b3bf1f-b84c-4c37-8dcf-a3b333b6c2b3">
+<img src="https://github.com/bangjaeyoung/gyul-box-project/assets/80241053/71b3bf1f-b84c-4c37-8dcf-a3b333b6c2b3">
 
 </br>
 </br>
@@ -205,7 +209,7 @@ public long updateViewCount(Long postId) {
 2. Querydsl의 JPQL 쿼리를 통한 조회 수 증가 로직(벌크 연산)이 수행 / DB의 해당 게시글 조회 수는 1 증가됨
 3. 벌크 연산은 영속성 컨텍스트를 우회하는 작업이기에, 1차 캐시에 저장된 조회 수가 증가되기 전의 Post 엔티티가 반환   
    
-📌 [관련 내용 PR](https://github.com/bangjaeyoung/gyul-box/pull/3)
+📌 [관련 내용 PR](https://github.com/bangjaeyoung/gyul-box-project/pull/3)
 
 ### 3) 문제 해결
 대용량 처리를 위한 벌크 연산을 통해 조회 수 증가를 구현할 필요는 굳이 없다고 판단했습니다.   
@@ -238,7 +242,7 @@ public void increaseViews() {
 <div markdown="1">
   Area 엔티티를 설계한 후, 애플리케이션을 실행하면 다음과 같은 에러가 발생했습니다.
   
-  <img src="https://github.com/bangjaeyoung/gyul-box/assets/80241053/4d4a07fc-cced-4096-b29b-0b49a8800253">
+  <img src="https://github.com/bangjaeyoung/gyul-box-project/assets/80241053/4d4a07fc-cced-4096-b29b-0b49a8800253">
 
   ddl-auto: update 옵션을 hbm2ddl.auto: update로 바꿔 해결했습니다.   
   Area 도메인은 기본키 생성 전략이 따로 있지 않고, 5011010100과 같은 값으로 직접 넣어줍니다.   
